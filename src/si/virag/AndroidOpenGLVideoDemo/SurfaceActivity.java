@@ -36,8 +36,6 @@ public class SurfaceActivity extends Activity implements TextureView.SurfaceText
     protected void onResume()
     {
         super.onResume();
-        if (surface.isAvailable())
-            startPlaying();
     }
 
     @Override
@@ -55,6 +53,12 @@ public class SurfaceActivity extends Activity implements TextureView.SurfaceText
         renderer = new VideoTextureRenderer(this, surface.getSurfaceTexture(), surfaceWidth, surfaceHeight);
         player = new MediaPlayer();
 
+        try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+        
         try
         {
             AssetFileDescriptor afd = getAssets().openFd("big_buck_bunny.mp4");

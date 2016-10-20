@@ -203,7 +203,8 @@ public class VideoTextureRenderer extends TextureSurfaceRenderer implements Surf
             float heightRatio = height / (float)videoHeight;
             int newWidth = (int)(width * heightRatio);
             int xOffset = (newWidth - width) / 2;
-            GLES20.glViewport(-xOffset, 0, newWidth, height);
+//            GLES20.glViewport(-xOffset, 0, newWidth, height);
+            GLES20.glViewport(-0, 0, width, (int)(width*videoAspect));
         }
         else
         {
